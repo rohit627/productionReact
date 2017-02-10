@@ -40,7 +40,7 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>React To do</h2>
+          <h2>React To do app</h2>
         </div>
         <div className="Todo-App">
             <TodoForm handleSubmit={this.handleSubmit} handleChange={this.handleChange} currentTodo={this.state.currentTodo}/>
