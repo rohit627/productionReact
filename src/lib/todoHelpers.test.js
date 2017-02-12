@@ -1,7 +1,7 @@
 import {addTodo, generateId} from './todoHelpers';
 
 test('generateId should create a unique number', () => {
-    const result = 1;
+    const result = 'xxxx-1yxx';
     const newNumber = generateId();
     expect(newNumber).not.toBe(result);
 });
