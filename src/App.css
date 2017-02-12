@@ -35,3 +35,8 @@ ul {
 li {
     list-style: none;
 }
+
+.error {
+    display: block;
+    color: red;
+}

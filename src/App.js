@@ -17,6 +17,14 @@ class App extends Component {
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleEmptySubmit = this.handleEmptySubmit.bind(this);
+    }
+
+    handleEmptySubmit(event) {
+        event.preventDefault();
+        this.setState({
+            errorMessage: 'Please insert a vaild '
+        });
     }
 
     handleSubmit(event) {
@@ -26,7 +34,8 @@ class App extends Component {
 
         this.setState({
             todos: updatedTodos,
-            currentTodo: ''
+            currentTodo: '',
+            errorMessage: ''
         });
     }
 
@@ -35,7 +44,9 @@ class App extends Component {
             currentTodo: event.target.value
         });
     }
+
   render() {
+    const submitHandler = this.state.currentTodo ? this.handleSubmit : this.handleEmptySubmit;
     return (
       <div className="App">
         <div className="App-header">
@@ -43,7 +54,8 @@ class App extends Component {
           <h2>React To do app</h2>
         </div>
         <div className="Todo-App">
-            <TodoForm handleSubmit={this.handleSubmit} handleChange={this.handleChange} currentTodo={this.state.currentTodo}/>
+            <span className="error">{this.state.errorMessage}</span>
+            <TodoForm handleSubmit={submitHandler} handleChange={this.handleChange} currentTodo={this.state.currentTodo}/>
             <TodoList todos={this.state.todos} />
         </div>
       </div>
